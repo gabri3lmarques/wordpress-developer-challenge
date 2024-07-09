@@ -1,0 +1,17 @@
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.3s ease;
+    cursor: grab;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    height: 200px;
+    background-color: blue;
+}
