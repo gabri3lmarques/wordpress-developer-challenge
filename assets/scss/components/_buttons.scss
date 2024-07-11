@@ -1,0 +1,35 @@
+.bx-desafio-button {
+    border: 1px solid $white;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: 'circ-medium';
+    text-decoration: none;
+    
+    &.small {
+        width: 128px;
+        height: 32px;
+    }
+
+    &.taxonomy {
+        background-color: $white;
+        color: $davys-gray;
+    }
+
+    &.time {
+        background-color: transparent;
+        color: $white;
+    }
+
+    &.large {
+        border: 1px solid $red;
+        background-color: $red;
+        width: 310px;
+        height: 64px;
+        color: $white;
+        transition: $fast;
+
+        &:hover {
+            background-color: $dark-red;
+        }
+    }
+}

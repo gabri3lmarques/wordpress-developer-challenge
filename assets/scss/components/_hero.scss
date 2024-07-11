@@ -1,0 +1,57 @@
+.bx-desafio-hero {
+    height: 1000px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .bx-desafio-hero-bg {
+        background-size: cover;
+        animation: zoom 60s infinite linear;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .bx-desafio-hero-inner {
+        background-color: rgba(0, 0, 0, 0.45); 
+        height: 1000px;
+        padding-left: 134px;
+        padding-top: 470px;
+        position: relative;
+        z-index: 2;
+
+        .bx-desafio-hero-meta {
+            gap: 10px;
+        }
+
+        .bx-desafio-hero-title {
+            width: 812px;
+            margin-top: 38px;
+        }
+
+        .bx-desafio-hero-cta {
+            margin-top: 25px;
+        }
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    48% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    98% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

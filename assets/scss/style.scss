@@ -1,9 +1,14 @@
-@import './utils/variables';
-@import './carousel/carousel';
 @import './base/reset';
-@import './base/base';
+@import './utils/variables';
 @import './base/typography';
+@import './carousel/carousel';
+@import './base/base';
+@import './components/topmenu';
+@import './components/footer';
+@import './components/buttons';
+@import './components/hero';
 @import './pages/home';
+@import './pages/styleguide';
 
 
 

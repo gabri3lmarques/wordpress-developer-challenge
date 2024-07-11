@@ -152,20 +152,20 @@ add_action('save_post', 'save_video_meta_boxes');
 
 // campo imagem
 
-function add_bx_play_image() {
+function add_video_image_meta_box() {
     add_meta_box(
-        'bx_play_image', // ID da nova meta box para imagem
+        'video_image_meta_box', // ID da nova meta box para imagem
         'Imagem do Video', // Título da nova meta box para imagem
-        'display_bx_play_image', // Callback para exibir o conteúdo da nova meta box para imagem
+        'display_video_image_meta_box', // Callback para exibir o conteúdo da nova meta box para imagem
         'video', // Tipo de post ao qual esta meta box pertence
         'side', // Contexto da nova meta box (lado direito)
         'default' // Prioridade
     );
 }
 
-add_action('add_meta_boxes', 'add_bx_play_image');
+add_action('add_meta_boxes', 'add_video_image_meta_box');
 
-function display_bx_play_image($post) {
+function display_video_image_meta_box($post) {
     // Obter o ID da imagem salva
     $image_id = get_post_meta($post->ID, 'bx_play_image', true);
     ?>
@@ -228,7 +228,7 @@ function display_bx_play_image($post) {
     <?php
 }
 
-function save_bx_play_image($post_id) {
+function save_video_image_meta_box($post_id) {
     // Verificar se o campo `bx_play_image` está definido
     if (isset($_POST['bx_play_image'])) {
         // Sanitizar o valor antes de salvar
@@ -236,8 +236,8 @@ function save_bx_play_image($post_id) {
         update_post_meta($post_id, 'bx_play_image', $image_id);
     }
 }
+add_action('save_post', 'save_video_image_meta_box');
 
-add_action('save_post', 'save_bx_play_image');
 
 
 

@@ -1,10 +1,6 @@
-<?php 
+<?php get_template_part('template-parts/header'); ?>
 
-wp_head();
-
-get_template_part('template-parts/header');
-
-?>
+<?php get_template_part('template-parts/hero'); ?>
 
 <div class="carousel" data-items="3">
     <div class="carousel-inner">
@@ -43,10 +39,4 @@ get_template_part('template-parts/header');
 </div>
 
 
-<?php
-
-get_template_part('template-parts/footer');
-
-wp_footer();
-
-?>
+<?php get_template_part('template-parts/footer'); ?>

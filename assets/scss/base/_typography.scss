@@ -1,0 +1,58 @@
+// Definindo fontes locais
+@font-face {
+    font-family: 'circ-lite';
+    src: url('../fonts/lite.otf');
+}
+
+@font-face {
+    font-family: 'circ-medium';
+    src: url('../fonts/medium.otf');
+}
+
+@font-face {
+    font-family: 'circ-book';
+    src: url('../fonts/book.otf');
+}
+
+@font-face {
+    font-family: 'circ-bold';
+    src: url('../fonts/bold.otf');
+}
+
+@font-face {
+    font-family: 'circ-black';
+    src: url('../fonts/black.otf');
+}
+
+h1 {
+    color: $white;
+    font-family: 'circ-black';
+}
+
+h1.bx-desafio-home {
+    font-size: 100px;
+    font-family: 'circ-black';
+}
+
+h1.bx-desafio-single {
+    font-size: 70px;
+}
+
+h2 {
+    color: $red;
+    font-size: 40px;
+    font-family: 'circ-black';
+}
+
+h3 {
+    color: $white;
+    font-size: 30px;
+    font-family: 'circ-black';
+}
+
+p {
+    font-size: 18px;
+    color: $white;
+    font-family: 'circ-medium';
+}
+
