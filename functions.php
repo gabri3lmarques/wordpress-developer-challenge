@@ -4,7 +4,7 @@
 function load_scripts() {
     wp_enqueue_style('bx-desafio-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0');
     wp_enqueue_script('bx-desafio-carousel-js', get_template_directory_uri() . '/assets/js/carousel.js', array(), '1.0.0', true);
-    wp_enqueue_script('bx-desafio-main-js', get_template_directory_uri() . '/assets/js/main.js', array('carousel-js'), '1.0.0', true);
+    wp_enqueue_script('bx-desafio-main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts');

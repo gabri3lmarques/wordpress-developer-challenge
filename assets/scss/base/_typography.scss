@@ -42,6 +42,11 @@ h2 {
     color: $red;
     font-size: 40px;
     font-family: 'circ-black';
+
+    &.home {
+        margin-left: 140px;
+        margin-bottom: 34px;
+    }
 }
 
 h3 {
