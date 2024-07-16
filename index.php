@@ -61,6 +61,7 @@ function display_video_carousel($post_type, $term, $title, $items = 9) {
 display_video_carousel('video', 'movie', 'Movies');
 display_video_carousel('video', 'doc', 'Documentaries');
 display_video_carousel('video', 'serie', 'Series');
+
 ?>
 
 <?php get_template_part('template-parts/footer'); ?>

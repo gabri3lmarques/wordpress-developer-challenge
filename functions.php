@@ -9,23 +9,23 @@ function load_scripts() {
 
 add_action('wp_enqueue_scripts', 'load_scripts');
 
-// criando o post type para os videos
-function create_video_post_type() {
+// Função para registrar o custom post type
+function register_video_post_type() {
     $labels = array(
         'name'               => 'Videos',
         'singular_name'      => 'Video',
         'menu_name'          => 'Videos',
         'name_admin_bar'     => 'Video',
-        'add_new'            => 'Adicionar Novo',
-        'add_new_item'       => 'Adicionar Novo Video',
-        'new_item'           => 'Novo Video',
-        'edit_item'          => 'Editar Video',
-        'view_item'          => 'Ver Video',
-        'all_items'          => 'Todos os Videos',
-        'search_items'       => 'Procurar Videos',
-        'parent_item_colon'  => 'Video Pai:',
-        'not_found'          => 'Nenhum video encontrado.',
-        'not_found_in_trash' => 'Nenhum video encontrado no lixo.'
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Video',
+        'new_item'           => 'New Video',
+        'edit_item'          => 'Edit Video',
+        'view_item'          => 'View Video',
+        'all_items'          => 'All Videos',
+        'search_items'       => 'Search Videos',
+        'parent_item_colon'  => 'Parent Videos:',
+        'not_found'          => 'No videos found.',
+        'not_found_in_trash' => 'No videos found in Trash.'
     );
 
     $args = array(
@@ -40,16 +40,13 @@ function create_video_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
-        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
-        'menu_icon'          => 'dashicons-video-alt3'
+        'supports'           => array('title', 'editor', 'thumbnail')
     );
 
     register_post_type('video', $args);
 }
 
-add_action('init', 'create_video_post_type');
-
-// criando as taxonomias para os videos
+// Função para registrar a taxonomia
 function create_video_taxonomy() {
     $labels = array(
         'name'              => 'Tipos de Video',
@@ -88,7 +85,23 @@ function create_video_taxonomy() {
     }
 }
 
+// Função para atualizar os permalinks
+function flush_rewrite_rules_on_activation() {
+    register_video_post_type();
+    create_video_taxonomy();
+    flush_rewrite_rules();
+}
+
+// Hook para registrar o custom post type e taxonomia
+add_action('init', 'register_video_post_type');
 add_action('init', 'create_video_taxonomy');
+
+// Hook para atualizar os permalinks na ativação do tema ou plugin
+register_activation_hook(__FILE__, 'flush_rewrite_rules_on_activation');
+
+// Atualizar permalinks na desativação do tema ou plugin (boa prática para limpar as regras)
+register_deactivation_hook(__FILE__, 'flush_rewrite_rules');
+
 
 // adicionando campos personalizados
 
@@ -237,6 +250,24 @@ function save_video_image_meta_box($post_id) {
     }
 }
 add_action('save_post', 'save_video_image_meta_box');
+
+function filter_videos_by_taxonomy($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('video') && isset($_GET['video_type'])) {
+        $video_type = sanitize_text_field($_GET['video_type']);
+        $tax_query = array(
+            array(
+                'taxonomy' => 'video_type',
+                'field'    => 'slug',
+                'terms'    => $video_type,
+            ),
+        );
+        $query->set('tax_query', $tax_query);
+    }
+}
+
+add_action('pre_get_posts', 'filter_videos_by_taxonomy');
+
+
 
 
 

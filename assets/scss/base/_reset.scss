@@ -92,3 +92,13 @@ input[type="submit"][disabled], input[type="reset"][disabled] {
 input, textarea, select, button {
     line-height: normal;
 }
+
+body.admin-bar {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar {
+        margin-top: 46px;
+    }
+}

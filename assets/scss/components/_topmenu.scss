@@ -1,3 +1,97 @@
 .bx-desafio-menu {
     display: flex;
+    background: rgba(#000000, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 92px;
+    width: 100%;
+    z-index: 3;
+    padding-left: 140px;
+    padding-right: 140px;
+    transition: $fast;
+    align-items: center;
+    justify-content: space-between;
+
+    &.sticky {
+        height: 50px;
+    }
+
+    .bx-desafio-links {
+        display: flex;
+        gap: 50px;
+        font-size: 19px;
+        transition: $fast;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            font-family: 'circ-medium';
+
+            &:hover {
+                color: $red;
+            }
+
+            &.active {
+                color: $red;
+            }
+        }
+    }
+}
+
+.bx-desafio-menu-mobile {
+    background: rgba(#000000, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 83px;
+    width: 100%;
+    z-index: 3;
+    padding-left: 140px;
+    padding-right: 140px;
+    transition: $fast;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    .bx-desafio-menu-mobile-warpper {
+        position: relative;
+        height: 83px;
+        width: 100%;
+
+        .bx-desafio-logo-mobile {
+            position: absolute;
+            top: -83px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 83px;
+            transition: $fast;
+
+            &.visible {
+                top: 0;
+            }
+        }
+    
+        .bx-desafio-links-mobile {
+            position: absolute;
+            top: -83px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 83px;
+            transition: $fast;
+
+            &.visible {
+                top: 0;
+            }
+
+        }
+    }
+
+
 }
